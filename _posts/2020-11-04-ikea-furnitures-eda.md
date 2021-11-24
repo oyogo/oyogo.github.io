@@ -15,15 +15,15 @@ There are quite a number of things to inspect but I'll just have a look at a few
 
 
 
-### Data import
-```{r results='hide', message=FALSE, warning=FALSE}
+#### Data import
+```
 
 ikea <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-11-03/ikea.csv')
 
 ```
 
-### Loading libraries
-```{r results='hide', message=FALSE, warning=FALSE}
+#### Loading libraries
+```
 library(dplyr)
 library(plotly)
 library(ggridges)
@@ -31,14 +31,14 @@ library(ggridges)
 ```
 
 
-## How's the rank of furniture categories with regard to number of designers?
+#### How's the rank of furniture categories with regard to number of designers?
 
 I thought it interesting to see which category of furnitures had the highest number of designers.
 Its clear from the bar graph below that Tables and desks had the highest count followed closely by Book cases and shelving units.
 
 I love the interactivity of plotly. With a hover on the bars you can see the furniture category and the corresponding number of designers.
 
-```{r  message=FALSE, warning=FALSE}
+```
 
 ikea_cat_des <- ikea %>%
   dplyr::group_by(category) %>%
@@ -70,7 +70,7 @@ plot_ly(ikea_cat_des,
 
 
 
-## How's the comparison of item categories that are sellable online and those that are not?
+#### How's the comparison of item categories that are sellable online and those that are not?
 
 I love the way a sankey diagram highlights the fact that a large percentage of items are sellable online.
 As we can note from the diagram, the following items are not sellable online entirely:
@@ -81,7 +81,7 @@ whereas for the other categories, only a small percentage of items are not sella
 
   
 
-```{r message=FALSE, warning=FALSE}
+```
 
 category_selleable_online <- ikea %>%
   dplyr::group_by(category,sellable_online) %>%
@@ -131,10 +131,10 @@ category_selleable_online <- ikea %>%
 ```
 
 
-## How do the furniture categories compare in terms of Mean price?
+#### How do the furniture categories compare in terms of Mean price?
 
 
-```{r message=FALSE, warning=FALSE}
+```
 
 ikea_cat_price <- ikea %>%
   dplyr::group_by(category) %>%
@@ -163,9 +163,9 @@ plot_ly(ikea_cat_price,
 ```
 
 
-## Checking the price distributions of the furniture categories
+#### Checking the price distributions of the furniture categories
 
-```{r message=FALSE, warning=FALSE}
+```
 
 
 item_price_distribution <- ikea %>%
