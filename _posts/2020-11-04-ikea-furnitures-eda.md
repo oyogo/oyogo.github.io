@@ -9,9 +9,10 @@ tags:
   - tidytuesday
 ---
 
-**I am loving the tidytuesday challenges cause of the way they stretch my thinking particularly on data visualization skills.
+I am loving the tidytuesday challenges cause of the way they stretch my thinking particularly on data visualization skills.
 Took some time to flex my EDA skills with the TidyTuesday challenge data from Ikea home furnishing company.
-There are quite a number of things to inspect but I'll just have a look at a few.**
+There are quite a number of things to inspect but I'll just have a look at a few.    
+
 
 
 ### Data import
