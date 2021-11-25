@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Ikea furnitures EDA
 author: Clinton Oyogo
 date: '2020-11-04'
@@ -68,6 +69,8 @@ plot_ly(ikea_cat_des,
               tickmode = "array")
 ```
 
+![fig1](/assets/fig1_ikeaEDA.png)  
+
 
 
 #### How's the comparison of item categories that are sellable online and those that are not?
@@ -130,6 +133,7 @@ category_selleable_online <- ikea %>%
    
 ```
 
+![fig2](/assets/fig2_ikeaEDA.png)  
 
 #### How do the furniture categories compare in terms of Mean price?
 
@@ -162,6 +166,7 @@ plot_ly(ikea_cat_price,
 
 ```
 
+![fig3](/assets/fig3_ikeaEDA.png)  
 
 #### Checking the price distributions of the furniture categories
 
@@ -179,5 +184,5 @@ ggplot(item_price_distribution,aes(x = price, y = reorder(category, price))) +
 
 ```
 
-
+![fig4](/assets/fig4_ikeaEDA.png)  
 
