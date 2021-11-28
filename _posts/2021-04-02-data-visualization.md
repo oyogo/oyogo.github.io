@@ -9,9 +9,11 @@ output:
           collapsed: false
 date: '2021-04-02'
 slug: data-visualization
-categories:
+category: R
+tags: 
   - r
-tags: []
+  - data visualization
+  
 ---
 
  Data visualization is a branch of descriptive statistics that helps us to get insights from data. With graphics, we can explore the data to try and unpack underlying patterns which might be hidden in the data, as such, not easily perceivable just by plainly looking at the data.  

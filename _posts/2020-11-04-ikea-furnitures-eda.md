@@ -4,10 +4,10 @@ title: Ikea furnitures EDA
 author: Clinton Oyogo
 date: '2020-11-04'
 slug: ikea-furnitures-eda
-categories:
-  - r
+category: R
 tags:
   - tidytuesday
+  - r
 ---
 
 I am loving the tidytuesday challenges cause of the way they stretch my thinking particularly on data visualization skills.
