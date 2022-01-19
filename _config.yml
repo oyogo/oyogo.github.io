@@ -38,7 +38,7 @@ defaults:
   home:
     heading: "'The goal is to turn data into information and information into insight'"
     subheading: Carly Fiorina
-    banner: "/assets/analytics.jpeg"     
+    banner: "/assets/homepage_unsplash.jpg"     
 
 
 theme_color: #353535
