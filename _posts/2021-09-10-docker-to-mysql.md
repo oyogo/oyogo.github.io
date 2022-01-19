@@ -4,8 +4,12 @@ output: html_notebook
 editor_options: 
   chunk_output_type: inline
   
-category: R
-tag: docker  
+category: Shiny
+tags: 
+ - docker  
+ - r
+ - shiny 
+
 ---
 
 

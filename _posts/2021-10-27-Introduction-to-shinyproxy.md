@@ -1,10 +1,11 @@
 ---
 title: "Introduction to shinyproxy"
 output: html_notebook
-category: R
+category: Shiny
 tags:
  - docker
  - shinyproxy
+ - deployment
 ---
 
 **Shinyproxy is an open-source system that makes it possible to deploy dockerized applications. The beauty of deploying your application with shinyproxy is that it gives you enterprise features in an open-source context.**  

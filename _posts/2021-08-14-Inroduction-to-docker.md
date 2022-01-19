@@ -4,7 +4,10 @@ title: Docker Introduction with R
 author: "Oyogo"
 date: "2021-8-27"
 category: R
-tag: docker
+tag: 
+ - docker
+ - r
+ - shiny
 ---
 
 
