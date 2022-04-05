@@ -18,7 +18,7 @@ The image below helps to illustrate how docker works in comparison to a virtual 
 
 ![container_vs_vm](/assets/container-vm.png) 
 
-#Docker  
+**Docker**  
 Docker is a computer system that helps you to create a loosely isolated environment (from your computer) called a container for your application(s). The environment is isolated from host machine in the sense that the container can have an application, operating system with a different version and dependencies from the ones existing on your host machine, in other words, we can have an R version 3.1.2 inside the container while in the host machine we have R version 3.4.1.  
 
 **Why docker?**   
@@ -26,7 +26,7 @@ Docker is a computer system that helps you to create a loosely isolated environm
  * Often times packages and dependencies bring problems when they get updated such that a shiny application which was working stops working just because some version of a package previously used was updated to another version. 
  
 
-#Docker architecture 
+**Docker architecture**    
 
 The following image gives us an overview of how the docker system works  
 
@@ -48,14 +48,14 @@ This is the manager of docker objects ; images, containers, networks, and volume
 This is where docker images are stored, shared and managed.  
 
 
-#Installation
+**Installation**   
 Docker system is built on linux however, for windows and Mac users you can still install a desktop version as explained in the procedures below:  
 
 [Installing docker on Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)   
 [Installing docker on Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)   
 
-#Dockerfile
-Below is a simple example of a Dockerfile that I built from the Education app that I developed earlier in this article.  
+**Dockerfile**   
+Below is a simple example of a Dockerfile that I built from the Education app that I developed earlier(see previous articles).  
  ![](/assets/dfile.png)   
 
 
@@ -108,7 +108,7 @@ CMD command tells docker which command to run inside the container.  For this ca
 This command instructs the container to open up the network port 3838 to the outside world. 
 
   
-# Building the image.  
+**Building the image**  
 Once we've written our dockerfile as explained above navigate to the working directory containing you application files and enter the following command to build the image:  
 
 ![](/assets/dbuild.png)  
@@ -120,7 +120,7 @@ The . instructs docker to use the Dockerfile in the current folder. Otherwise we
 
 N/B remember to replace the nameofimage to your desired name. If you have a docker hub account you can use *yournameindockerhub/nameofimage* 
 
-#Spinning the container  
+**Spinning the container**  
 
 You will have to wait for some minutes for your image to be built depending on the specs of your computer, internet speed and how big your application is.   
 After the image is successfully built use the following command to check if the image exists in your system.  
