@@ -9,18 +9,18 @@ tags:
  - data preparation
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-```
 
+It a widely known fact that a data scientist spends more than 80% of a data science project time cleaning up and preparing data for analysis and modelling, as such, its indispensable for a data scientist to have a good understanding and practical skills on data cleaning and munging. To that effect, this article seeks to practically apply some fundamental techniques of data cleaning and munging on a messy data set.   
 
 ## About the data. 
 The data used in this analysis was obtained from a [Salary Survey](https://www.askamanager.org/2021/04/how-much-money-do-you-make-4.html) done by askamanager.org.   
 
-## Why this article. 
-It a widely known fact that a data scientist spends more than 80% of a data science project time cleaning up and preparing data for analysis and modelling, as such, its indispensable for a data scientist to have a good understanding and practical skills on data cleaning and munging. To that effect, this article seeks to practically apply some fundamental techniques of data cleaning and munging on a messy data set.   
-
 ### Load libraries 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 ```{r}
 library(data.table) # for data wrangling 
 library(plotly)   # for data visualization
