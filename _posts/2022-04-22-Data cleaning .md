@@ -76,7 +76,7 @@ A quick inspection of our dataset as shown above shows that it needs some bit of
 #### Column names    
 We can use the combine function c() to create a vector of the desired names the assign them to column names of the dataframe using the names() function as shown below. There are other ways of doing this, you could explore and settle on what works best for you.  
 
-```{r clean the data - column names}
+```{r}
 # change the columns name - observe the naming syntax for headers/columns
  names(salary_data) <- c("Timestamp","age","industry","job_title","job_title_context","annual_salary",
                          "Other_monetary_comp","currency","currency_other",
@@ -88,7 +88,7 @@ We can use the combine function c() to create a vector of the desired names the 
 #### Consistency and spelling issues   
 Categorical variables such as level of education and country need some bit of cleaning, we need have the values consistent rather than having variants of a given category.    
  
-```{r clean the data - level of education }
+```{r}
 # College degree and Some college kinda means the same. Let us just categorize them into one (College degree). 
 salary_data$highest_edu_level <- gsub("Some college","College degree",salary_data$highest_edu_level)
 
@@ -98,7 +98,7 @@ In the chunk above, we have used gsub to do string replacement. I'd like us to e
 Thanks to the stringi and stringr packages, there's a whole myriad of functions we can use to manipulate the data.  
 For now we can make use of the stri_replace_all_regex from stringi to do replacements. 
 
-```{r clean the data - country column }
+```{r}
 
 # replace the variants of United states with one name.  
 salary_data$country <- stri_replace_all_regex(salary_data$country,
@@ -145,7 +145,7 @@ percentage.count <- salary_data[,.(totalcount=.N,country)][,.(count=.N,totalcoun
 After getting the percentage count of submissions per country we see that United States accounts for 83% of all submissions. Now, me thinks it would be good to filter the data to submissions from United States only. This will also ensure we have the same currency to deal with. It would also be good to consider submissions from the same economy in order to rule out other factors that might inform the differences in salary rates.  
 With that in mind I'll therefore filter submissions from U.S only, good thing is 83% of the original data is still sufficient for our next step, analysis.   
   
-```{r subset the data}
+```{r}
 salary_data_US <- salary_data[country %like% "United States",]
 ```
 
@@ -170,7 +170,7 @@ salary_data_US <- salary_data_US[currency_other %in% c("USD","American Dollars",
 ```
 
 
-```{r drop the submissions which have other currencies other than USD}
+```{r}
 
 salary_data_US <- salary_data_US[currency == "USD",]
 
@@ -196,7 +196,7 @@ There are two primary ways of dealing with missing values.
 The approach to use really depends on your data, the type of data and where the missing values are occuring.    
 For this case, you notice that there are quite a number of variables with missing values, dropping such is a good option, at least for me seeing that we may not use them in the analysis. Take for example currency_other, job_title_context, income_context, other_monetary_comp variables.     
 
-```{r clean the data - convert the annual salary column and remove NAs } 
+```{r} 
 
 # we have some values which are null. we drop them  
 salary_data_US <- salary_data_US[ highest_edu_level !="",]  
