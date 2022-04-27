@@ -22,10 +22,6 @@ The data used in this analysis was obtained from a [Salary Survey](https://www.a
 
 N/B: Data analysed is for the submissions from United States only.   
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-```
-
 ## Load libraries  
 ```{r}
 library(data.table)
@@ -42,7 +38,7 @@ salary_data.US <- fread("data/salary_data_cleaned.csv")
 
 The list of industries is quite long, we will therefore plot the first 10, that's sufficient enough.  
 
-```{r which industry pays the most?}
+```{r}
 
 # calculate the average annual salary per industry
 salary.by.industry <- salary_data.US[,.(avg.salary=mean(annual_salary)),
