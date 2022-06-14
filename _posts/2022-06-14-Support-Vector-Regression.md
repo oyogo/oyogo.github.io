@@ -1,6 +1,9 @@
 ---
 title: "Support Vector Regression using R"
 author: "Clinton" 
+output:
+  html_document:
+    keep_md: true
 category: R
 tags:
  - r  
