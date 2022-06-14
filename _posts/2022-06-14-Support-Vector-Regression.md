@@ -91,7 +91,7 @@ str(svm_data)
 ```
 
 ## Data preparation and transformation. 
-* Encode the categorical variables to numeric type 
+Encode the categorical variables to numeric type 
 You'll often need to encode your features (variables) into numbers as that's what machine learning models understand. 
 Your categorical data can either be nominal or ordinal.  
 
