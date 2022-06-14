@@ -9,9 +9,6 @@ tags:
  - machine learning  
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=FALSE)
-```
 
 ## SVM(Support Vector Machine)   
 
