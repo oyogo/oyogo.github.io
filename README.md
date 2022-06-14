@@ -1,4 +1,7 @@
-# Insightful analytics blog  
+# Insightful analytics blog    
+
+![](assets/blog_page.png)   
+
 Sharing is caring !  
 I have compiled the documentations and articles I have written into a blog for the sake of sharing what I've learnt peradventure someone finds it useful. 
 It has helped me severally whenever I've wanted to make reference to the steps/approaches/procedures I took in writing code, developing softwares and analyzing data.  
