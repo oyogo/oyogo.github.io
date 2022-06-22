@@ -13,7 +13,7 @@ tags:
 Shiny is an R framework that makes it easy to develop web applications without necessarily knowing HTML. 
 The skill will come in handy in situations where you want to share your R model to people as an interactive dashboard or maybe perform an exploratory data analysis that has interactive visualizations on it and many other use cases.   
 
-![](/assets/simple_app.jpg)
+![](www/simple_app.jpg)
 
 ```r
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE,message = FALSE)
@@ -59,16 +59,15 @@ library(plotly) # for data visualization
  
 # data import    
  
-We will use the [students performance](https://raw.githubusercontent.com/oyogo/data/main/StudentsPerformance.csv) data from kaggle. 
+We will use the [students performance](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams) data from kaggle. 
 
   > To read in the data you can either use _read.csv("path/to/your/data.csv")_
     or _fread("path/to/your/data.csv")_
     but I'd prefer fread function from data.table because its quite fast, especially when the data file is big.  
+    Secondly, I have done some transformations on the data. The transformed data is on my github account and we'll fetch it from there. 
+    This is so that we can focus on dashboard development and not data wrangling. 
     
-    
-```r
-stud_perf <- fread("https://raw.githubusercontent.com/oyogo/data/main/StudentsPerformance.csv")
-```
+
  
 # Structure of a Shiny app
  
@@ -83,7 +82,7 @@ stud_perf <- fread("https://raw.githubusercontent.com/oyogo/data/main/StudentsPe
  If your app is rather too big then the two script approach might suit you but for this tutorial we'll use the single script approach.   
  
 A basic shiny app with no content has the following structure.(single file structure)   
- ![](/assets/shinyapp_structure.png)
+ ![](www/shinyapp_structure.png)
  
 # The UI 
 
@@ -99,7 +98,7 @@ UI simply means user interface, this is the part of the app where we design the 
  
  
 The image below shows a sketch of how the aforementioned layouts look like.    
-![](/assets/ui_layouts.png)
+![](www/ui_layouts.png)
 
 For this tutorial we shall be using a mix of the sidebar layout with the fluidRow and column but I'd like to point you to [this](https://shiny.rstudio.com/tutorial/written-tutorial/lesson2/) article for more details on the layouts.  
 
@@ -274,7 +273,7 @@ The back and forth communication between the ui and the server is made possible 
 
 The diagram below illustrates this concept.   
 
-![](/assets/ui_server_talks.png)
+![](www/ui_server_talks.png)
 
 
 The above image shows just one example of an object that we can display on the ui.   
@@ -284,7 +283,7 @@ I recommend you visit this page to see some more objects.
 
 The object can be a table, a plot, a reactive text, a raw HTML etc. The image below lists some of the objects and their corresponding output and render functions just to get you started. For more on this please check out [this](https://shiny.rstudio.com/tutorial/written-tutorial/lesson4/) page, you'll also get to understand more on reactivity.    
 
-![](/assets/output_render_functions2.png)
+![](www/output_render_functions2.png)
 
 Back to our app that we were building.   
 Below is the server code below that generates the two plots on our app.  
@@ -360,8 +359,9 @@ library(ggplot2)
 library(data.table)
 library(dplyr)
 
-stud_perf_melt <- fread("../data/student_performance_preprocessed_data.csv") #the data is stored inside the data folder in the app directory. The two dots mean the folder is two steps up 
+stud_perf_melt <- fread("https://raw.githubusercontent.com/oyogo/data/main/student_performance_preprocessed_data.csv") #the data is stored inside the data folder in the app directory. The two dots mean the folder is two steps up 
 
+# **Note: I have done some transformation on the data and uploaded it to my github that's why I am fetching it from there.** 
 
 # Define UI for application
 ui <- fluidPage(
@@ -440,9 +440,10 @@ server <- function(input, output) {
                color = ~gender,
                text = ~paste0("Gender: ", gender, "\n", "Subject: ", subject,"\n","Mean score: ",mean_score)) %>%
            add_bars(showlegend=TRUE, hoverinfo='text' ) %>%
-           layout(title="Mean gender performance",yaxis=list(title="Mean score"))#,
-                  #xaxis = list(title = "Subject"),
-                  #legend = list( title = list(text = "<b>Gender</b>"),orientation = "h"))
+           layout(title="Mean gender performance",yaxis=list(title="Mean score"))%>%
+       config(displayModeBar = FALSE, displaylogo = FALSE, 
+              scrollZoom = FALSE, showAxisDragHandles = TRUE, 
+              showSendToCloud = FALSE)
            
             
     })
@@ -477,7 +478,10 @@ server <- function(input, output) {
                 yaxis = list(
                     title = "Mean score"
                 )
-            ) 
+            ) %>%
+       config(displayModeBar = FALSE, displaylogo = FALSE, 
+              scrollZoom = FALSE, showAxisDragHandles = TRUE, 
+              showSendToCloud = FALSE)
     })
     
    
@@ -492,7 +496,7 @@ shinyApp(ui = ui, server = server)
 
 To run the application hit the Run App button on your RStudio IDE as show in the image below. 
 
-![](/assets/rstudio_ide.jpg)  
+![](www/rstudio_ide.jpg)  
 
 
 # Further reading
