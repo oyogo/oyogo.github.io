@@ -133,6 +133,11 @@ To spin a container from the image we use:
 
 ![](/assets/drun.png)
 
+```
+docker run -it --rm -p 3838:3838 -v '/pathtofolder/data':'/shiny/data' nameofimage  
+
+```
+
 
 docker run is the command for spinning a container from a docker image.    
 -p 3838 publishes the port to the outside world.    
