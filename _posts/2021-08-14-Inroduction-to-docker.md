@@ -56,9 +56,24 @@ Docker system is built on linux however, for windows and Mac users you can still
 
 **Dockerfile**   
 Below is a simple example of a Dockerfile that I built from the Education app that I developed earlier(see previous articles).  
- ![](/assets/dfile.png)   
 
+```
+FROM rocker/shiny-verse:latest
+USER root
 
+RUN R -e 'install.packages("devtools")'
+RUN R -e 'devtools::install_version("shiny",version="1.6.0",dependencies=T)'
+RUN R -e 'devtools::install_version("ggplot2",version="3.3.0",dependencies=T)'
+RUN R -e 'devtools::install_version("dplyr",version="4.9.2.1",dependencies=T)'
+
+COPY ./www/ /shiny/dashboard/www/
+COPY app.R /shiny/dashboard/  
+
+EXPOSE 3838 
+
+CMD R -e 'shiny::runApp("/shiny/dashboard" , port = 3838, host= "0.0.0.0")' 
+
+```
 
 _On your commandline you can use *touch Dockerfile* to create an empty file to begin with then use your preferred text editor to add layers to it.._  
 
@@ -111,7 +126,11 @@ This command instructs the container to open up the network port 3838 to the out
 **Building the image**  
 Once we've written our dockerfile as explained above navigate to the working directory containing you application files and enter the following command to build the image:  
 
-![](/assets/dbuild.png)  
+  
+```
+ docker build -t nameofimage . 
+
+```
  
  
  
@@ -125,13 +144,16 @@ N/B remember to replace the nameofimage to your desired name. If you have a dock
 You will have to wait for some minutes for your image to be built depending on the specs of your computer, internet speed and how big your application is.   
 After the image is successfully built use the following command to check if the image exists in your system.  
 
-![](/assets/dimages.png)
+
+```
+ docker images
+
+```
 
 The command lists all the images in your computer which you either built or pulled from docker registry. You can now check if the image you have built is there.  
 
 To spin a container from the image we use:    
 
-![](/assets/drun.png)
 
 ```
 docker run -it --rm -p 3838:3838 -v '/pathtofolder/data':'/shiny/data' nameofimage  
