@@ -1,4 +1,4 @@
-# Automated GPM Data download & processing pipeline   
+   
 Precipitation data is one of the highly sort satelite data owing to its contribution to agriculture, energy and climate related studies. The data can be obtained from gpm through google earth engine. A good example of its use is in climate/weather analyses/forecasts and this often times necessitates the need to access the data frequently or have it updated daily,monthly or quarterly depending on the use case.  
 Updating the data consumes time which can be engaged elsewhere and this is what lead me to automate the process so that I can concentrate on other tasks.  
 Below are the steps needed to set up the pipeline.   
@@ -19,24 +19,29 @@ Note: Ensure you give an absolute path to your private key on the python script.
 1. Create a virtual environment (python) 
 This is where you'll install the required packages for the pipeline. Its always a good practice to install the dependencies for your projects in a virual environment. 
 Open your terminal and enter the below command to create a virtual environment. 
- N/B assuming you have already installed python in your system. 
+ N/B assuming you have already installed python in your system.   
+
 ```
 python3 -m venv /path/to/your/environment 
 
 ```
+
 Note: replace the _/path/to/your/environment_ accordingly ! 
 
 2. Activate the environment and install libraries 
 To activate your environment and install the required libraries do the following: 
 
- * navigate into your environment and get into the bin folder
+ * navigate into your environment and get into the bin folder.    
+
  
  ```
 source /path/to/your/environment/bin/
 
  ```
 
-  * Install the libraries  
+
+  * Install the libraries      
+
 
  ```
  pip install geemap  #one by one 
@@ -66,7 +71,7 @@ There's a catch on when to set up your scripts to run, notice, I've mentioned th
 30 11 10 * * /path/to/your/gpm_datadownload.py >> /path/to/pylog.txt 2>&1
 50 11 10 * * /usr/local/bin/Rscript "/path/to/your/script.R" >> /path/to/munge.txt 2>&1  
 
-``
+```
 The python script runs at 11:30am on the 10th day of every month and the R script 20mins later.   
 Note: you could put a shebang line on the R script so that you call it without necessarily referencing the executable.      
 
